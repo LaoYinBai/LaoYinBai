@@ -6,10 +6,8 @@
 </p>
 
 <p align="center">
-  我做跨生态的近场设备互联底座：让不同生态的设备在身边自然协同。<br>
-  以 <a href="https://github.com/LaoYinBai/MoDi-Connect">MoDi Connect（墨堤互联）</a> 为主线，<br>
-  长期目标是一个可扩展的统一通信底座。<br><br>
-  <sub>Building a cross-ecosystem, near-field device interconnection foundation. MoDi Connect is the core.</sub>
+  喜欢动手做实用又有点意思的东西，大大小小的项目都做。<br>
+  <sub>Building practical and fun things, big and small.</sub>
 </p>
 
 <table>
