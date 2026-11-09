@@ -38,5 +38,4 @@
 <rect x="76" y="172" width="360" height="2" rx="1" fill="url(#hair)"/>
 <text x="76" y="212" font-family="'Segoe UI','Inter','Helvetica Neue',Arial,'PingFang SC','Microsoft YaHei',sans-serif" font-size="22" font-weight="600" letter-spacing="5" fill="#5EEAD4">INDEPENDENT DEVELOPER</text>
 <text x="76" y="246" font-family="'Segoe UI','Inter','Helvetica Neue',Arial,'PingFang SC','Microsoft YaHei',sans-serif" font-size="18" fill="#EAF2FF">个人独立开发者</text>
-<text x="76" y="282" font-family="'Segoe UI','Inter','Helvetica Neue',Arial,'PingFang SC','Microsoft YaHei',sans-serif" font-size="15" fill="#93A6C6">独立开发跨设备互联、AI 翻译与可复用的工程护栏。</text>
 </svg>

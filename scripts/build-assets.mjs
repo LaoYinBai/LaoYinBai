@@ -1,7 +1,5 @@
-// 生成 Silvite 主页的自定义 SVG 资产：品牌横幅、精选作品卡片、邮箱按钮、开发活动统计。
+// 生成 Silvite 主页的自定义 SVG 资产：品牌横幅、精选作品卡片、邮箱按钮。
 // 用法：node scripts/build-assets.mjs
-// 可选环境变量：GITHUB_TOKEN（或 GH_TOKEN）仅用于提高 API 限额，不会写入任何文件。
-// 统计部分失败时抛错退出（非 0），调用方可选择保留上一次生成的文件。
 
 import { readFileSync, writeFileSync, mkdirSync } from 'node:fs';
 import { dirname, join } from 'node:path';
@@ -10,7 +8,6 @@ import { fileURLToPath } from 'node:url';
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const ASSETS = join(ROOT, 'assets');
 const USER = 'LaoYinBai';
-const TOKEN = process.env.GITHUB_TOKEN || process.env.GH_TOKEN || '';
 
 const FONT = "'Segoe UI','Inter','Helvetica Neue',Arial,'PingFang SC','Microsoft YaHei',sans-serif";
 const MONO = "'Cascadia Code','JetBrains Mono',Consolas,'SFMono-Regular',monospace";
@@ -87,7 +84,6 @@ ${node(640, 200, 0)}${node(722, 152, 1.1)}${node(860, 262, 2.2)}${node(1080, 70,
 <rect x="76" y="172" width="360" height="2" rx="1" fill="url(#hair)"/>
 <text x="76" y="212" font-family="${FONT}" font-size="22" font-weight="600" letter-spacing="5" fill="${t.a}">INDEPENDENT DEVELOPER</text>
 <text x="76" y="246" font-family="${FONT}" font-size="18" fill="${t.text}">个人独立开发者</text>
-<text x="76" y="282" font-family="${FONT}" font-size="15" fill="${t.muted}">独立开发跨设备互联、AI 翻译与可复用的工程护栏。</text>
 </svg>`;
 }
 
@@ -152,65 +148,6 @@ function emailButton(email) {
 </svg>`;
 }
 
-// ---------- 开发活动统计 800×200 ----------
-const LANG_COLORS = ['#5EEAD4', '#818CF8', '#38BDF8', '#F472B6', '#FBBF24', '#34D399'];
-
-async function ghJson(path) {
-  const headers = { Accept: 'application/vnd.github+json', 'X-GitHub-Api-Version': '2022-11-28', 'User-Agent': 'silvite-profile-builder' };
-  if (TOKEN) headers.Authorization = `Bearer ${TOKEN}`;
-  const res = await fetch(`https://api.github.com${path}`, { headers });
-  if (!res.ok) throw new Error(`GitHub API ${path} -> HTTP ${res.status}`);
-  return res.json();
-}
-
-async function collectStats() {
-  const repos = (await ghJson(`/users/${USER}/repos?per_page=100&type=owner&sort=pushed`)).filter((r) => !r.fork);
-  if (repos.length === 0) throw new Error('no public repositories returned');
-  const totals = {};
-  for (const r of repos) {
-    const langs = await ghJson(`/repos/${r.full_name}/languages`);
-    for (const [name, bytes] of Object.entries(langs)) totals[name] = (totals[name] || 0) + bytes;
-  }
-  const sum = Object.values(totals).reduce((a, b) => a + b, 0);
-  const top = Object.entries(totals).sort((a, b) => b[1] - a[1]).slice(0, 6)
-    .map(([name, bytes]) => ({ name, pct: sum ? (bytes / sum) * 100 : 0 }));
-  const lastPush = repos.map((r) => r.pushed_at).sort().at(-1).slice(0, 10);
-  return { repoCount: repos.length, top, lastPush };
-}
-
-function statsSvg(s, t) {
-  const W = 800, H = 200, barX = 270, barW = 500;
-  let x = barX;
-  const segs = s.top.map((l, i) => {
-    const w = (l.pct / 100) * barW;
-    const out = `<rect x="${x.toFixed(1)}" y="64" width="${Math.max(w, 1).toFixed(1)}" height="14" fill="${LANG_COLORS[i]}"/>`;
-    x += w;
-    return out;
-  }).join('');
-  const legend = s.top.map((l, i) => {
-    const col = i % 3, row = Math.floor(i / 3);
-    const lx = barX + col * 170, ly = 112 + row * 26;
-    return `<circle cx="${lx + 5}" cy="${ly - 4}" r="4.5" fill="${LANG_COLORS[i]}"/>` +
-      `<text x="${lx + 16}" y="${ly}" font-family="${FONT}" font-size="13" fill="${t.text}">${esc(l.name)}</text>` +
-      `<text x="${lx + 150}" y="${ly}" text-anchor="end" font-family="${MONO}" font-size="12" fill="${t.muted}">${l.pct.toFixed(1)}%</text>`;
-  }).join('');
-  return `<svg xmlns="http://www.w3.org/2000/svg" width="${W}" height="${H}" viewBox="0 0 ${W} ${H}" role="img" aria-label="Public GitHub activity summary">
-<defs><linearGradient id="edge" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="${t.a}" stop-opacity=".6"/><stop offset="1" stop-color="${t.b}" stop-opacity=".6"/></linearGradient></defs>
-<rect x="0.5" y="0.5" width="799" height="199" rx="18" fill="${t.panel}" stroke="url(#edge)"/>
-<text x="28" y="38" font-family="${MONO}" font-size="11.5" letter-spacing="2" fill="${t.a}">PUBLIC ACTIVITY</text>
-<text x="28" y="98" font-family="${FONT}" font-size="44" font-weight="700" fill="${t.text}">${s.repoCount}</text>
-<text x="28" y="122" font-family="${FONT}" font-size="13" fill="${t.muted}">公开原创仓库</text>
-<text x="28" y="150" font-family="${MONO}" font-size="11.5" fill="${t.dim}">LAST PUSH</text>
-<text x="28" y="168" font-family="${MONO}" font-size="13" fill="${t.text}">${s.lastPush}</text>
-<text x="${barX}" y="38" font-family="${FONT}" font-size="13" fill="${t.muted}">主要语言（按代码字节统计）</text>
-<rect x="${barX}" y="64" width="${barW}" height="14" rx="7" fill="${t.line}" opacity=".35"/>
-<clipPath id="bar"><rect x="${barX}" y="64" width="${barW}" height="14" rx="7"/></clipPath>
-<g clip-path="url(#bar)">${segs}</g>
-${legend}
-<text x="28" y="186" font-family="${FONT}" font-size="11" fill="${t.dim}">数据来自 GitHub API，由 GitHub Actions 每日刷新。</text>
-</svg>`;
-}
-
 // ---------- 执行 ----------
 async function main() {
   const { projects } = JSON.parse(readFileSync(join(ROOT, 'scripts/projects.json'), 'utf8'));
@@ -221,10 +158,6 @@ async function main() {
   }
   write('contact-email.svg', emailButton('silvite@modiconnect.cn'));
 
-  // 统计失败时抛错，由工作流决定保留旧文件；不写入半成品
-  const stats = await collectStats();
-  for (const [mode, t] of Object.entries(THEMES)) write(`stats-${mode}.svg`, statsSvg(stats, t));
-  console.log(`stats: ${stats.repoCount} repos, top language ${stats.top[0]?.name}`);
 }
 
 main().catch((err) => {

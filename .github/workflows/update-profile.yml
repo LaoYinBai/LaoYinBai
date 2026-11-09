@@ -1,9 +1,7 @@
-# 自动刷新主页资产：每日更新 Pac-Man 贡献热力图与开发活动统计。
-# 失败处理：
-#   - 统计脚本失败：保留上一次提交的统计图，不阻塞其余步骤。
-#   - Pac-Man 生成失败：保留上一次提交的热力图，最后仍将作业标红，便于察觉。
-#   - 仅在确有文件变化时提交，且不会产生循环触发。
-# 权限：仅 refresh 作业拥有 contents: write，其余为只读；不使用任何自定义 Secret。
+# 每日刷新 Pac-Man 贡献热力图。
+# 失败处理：生成失败时保留上一次提交的热力图，并将作业标红以便察觉；仅在文件确有变化时提交，不会产生循环触发。
+# 权限：仅 refresh 作业拥有 contents: write；不使用任何自定义 Secret。
+# 注意：上游 Action 会向其统计端点上报用户名与游戏分数（见上游 src/index.js 的 reportStats）。
 
 name: update-profile
 
@@ -14,7 +12,6 @@ on:
   push:
     branches: [main]
     paths:
-      - 'scripts/**'
       - '.github/workflows/update-profile.yml'
 
 permissions:
@@ -34,21 +31,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Set up Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: 22
-
-      - name: Refresh activity stats
-        id: stats
-        continue-on-error: true
-        env:
-          GITHUB_TOKEN: ${{ github.token }}
-        run: node scripts/build-assets.mjs
-
-      # 上游：https://github.com/abozanona/pacman-contribution-graph
-      # 已固定到具体 commit，避免上游变更直接影响本仓库。
-      # 注意：该 Action 会向上游的统计端点发送用户名与游戏分数（见其 src/index.js 的 reportStats）。
+      # 上游：https://github.com/abozanona/pacman-contribution-graph，已固定到 commit。
       - name: Generate Pac-Man contribution graph
         id: pacman
         continue-on-error: true
@@ -77,7 +60,7 @@ jobs:
           fi
 
       - name: Report failures
-        if: steps.stats.outcome == 'failure' || steps.pacman.outcome == 'failure'
+        if: steps.pacman.outcome == 'failure'
         run: |
-          echo "::warning::stats=${{ steps.stats.outcome }} pacman=${{ steps.pacman.outcome }}"
+          echo "::error::Pac-Man graph generation failed; previous graph kept."
           exit 1
