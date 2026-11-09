@@ -1,23 +1,11 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="600" height="200" viewBox="0 0 600 200" role="img" aria-label="Sdltm Writer">
-<defs>
-  <linearGradient id="acc" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#5EEAD4"/><stop offset="1" stop-color="#818CF8"/></linearGradient>
-  <linearGradient id="ring" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#5EEAD4"/><stop offset="1" stop-color="#818CF8"/></linearGradient>
-  <linearGradient id="sheen" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#5EEAD4" stop-opacity="0"/><stop offset=".5" stop-color="#5EEAD4" stop-opacity=".10"/><stop offset="1" stop-color="#5EEAD4" stop-opacity="0"/></linearGradient>
-  <clipPath id="clip"><rect width="600" height="200" rx="18"/></clipPath>
-</defs>
-<style>
-  .sheen{animation:sheen 8s ease-in-out infinite}
-  @keyframes sheen{0%{transform:translateX(-220px)}55%,100%{transform:translateX(640px)}}
-  @media (prefers-reduced-motion: reduce){*{animation:none!important}}
-</style>
-<rect width="600" height="200" rx="18" fill="#0E1729"/>
-<g clip-path="url(#clip)"><rect class="sheen" x="0" y="0" width="200" height="200" fill="url(#sheen)"/></g>
-<rect x="0.5" y="0.5" width="599" height="199" rx="18" fill="none" stroke="#22304D"/>
-<rect x="28" y="22" width="44" height="3" rx="1.5" fill="url(#acc)"/>
-<text x="572" y="34" text-anchor="end" font-family="'Cascadia Code','JetBrains Mono',Consolas,'SFMono-Regular',monospace" font-size="11" letter-spacing="1.5" fill="#5EEAD4">WINDOWS 桌面工具</text>
-<text x="28" y="60" font-family="'Segoe UI','Inter','Helvetica Neue',Arial,'PingFang SC','Microsoft YaHei',sans-serif" font-size="24" font-weight="700" fill="#EAF2FF">Sdltm Writer</text>
-<text x="28" y="84" font-family="'Segoe UI','Inter','Helvetica Neue',Arial,'PingFang SC','Microsoft YaHei',sans-serif" font-size="14.5" font-weight="600" fill="#5EEAD4">SDLTM 翻译记忆转换工具</text>
-<text x="28" y="116" font-family="'Segoe UI','Inter','Helvetica Neue',Arial,'PingFang SC','Microsoft YaHei',sans-serif" font-size="13.5" fill="#93A6C6">把 TMX 翻译记忆转换为 Trados Studio 可打开的 .sdltm。</text>
-<text x="28" y="136" font-family="'Segoe UI','Inter','Helvetica Neue',Arial,'PingFang SC','Microsoft YaHei',sans-serif" font-size="13.5" fill="#93A6C6">无需安装 Trados，拖入文件即可导出。</text>
-<rect x="28" y="156" width="101.2" height="24" rx="12" fill="#162440"/><text x="78.6" y="172" text-anchor="middle" font-family="'Cascadia Code','JetBrains Mono',Consolas,'SFMono-Regular',monospace" font-size="11.5" fill="#A6DCF5">C# / .NET 8</text><rect x="137.20000000000002" y="156" width="65.2" height="24" rx="12" fill="#162440"/><text x="169.8" y="172" text-anchor="middle" font-family="'Cascadia Code','JetBrains Mono',Consolas,'SFMono-Regular',monospace" font-size="11.5" fill="#A6DCF5">SQLite</text><rect x="210.40000000000003" y="156" width="43.6" height="24" rx="12" fill="#162440"/><text x="232.2" y="172" text-anchor="middle" font-family="'Cascadia Code','JetBrains Mono',Consolas,'SFMono-Regular',monospace" font-size="11.5" fill="#A6DCF5">TMX</text>
+<rect x="0.5" y="0.5" width="599" height="199" rx="4" fill="#1B1A14" stroke="#3A372D"/>
+<rect x="28.5" y="26.5" width="11" height="11" fill="none" stroke="#9E9785"/>
+<text x="572" y="38" text-anchor="end" font-family="'Noto Sans SC','PingFang SC','Microsoft YaHei','Segoe UI',Arial,sans-serif" font-size="11" letter-spacing="2" fill="#625C4D">Windows 桌面工具</text>
+<text x="28" y="82" font-family="'Noto Serif SC','Source Han Serif SC','Songti SC','STSong','SimSun',Georgia,serif" font-size="24" font-weight="600" fill="#E9E3D3">Sdltm Writer</text>
+<text x="28" y="106" font-family="'Noto Sans SC','PingFang SC','Microsoft YaHei','Segoe UI',Arial,sans-serif" font-size="13.5" fill="#9E9785">SDLTM 翻译记忆转换工具</text>
+<rect x="28" y="124" width="544" height="1" fill="#3A372D"/>
+<text x="28" y="150" font-family="'Noto Sans SC','PingFang SC','Microsoft YaHei','Segoe UI',Arial,sans-serif" font-size="13" fill="#E9E3D3" fill-opacity=".85">把 TMX 翻译记忆转换为 Trados Studio 可打开的 .sdltm。</text>
+<text x="28" y="170" font-family="'Noto Sans SC','PingFang SC','Microsoft YaHei','Segoe UI',Arial,sans-serif" font-size="13" fill="#E9E3D3" fill-opacity=".85">无需安装 Trados，拖入文件即可导出。</text>
+<text x="28" y="188" font-family="'Noto Sans SC','PingFang SC','Microsoft YaHei','Segoe UI',Arial,sans-serif" font-size="11" letter-spacing="1" fill="#625C4D">C# / .NET 8 · SQLite · TMX</text>
 </svg>

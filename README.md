@@ -59,6 +59,9 @@
 <p align="center">
   有想聊的点子或合作，欢迎来信。<br>
   <a href="mailto:silvite@modiconnect.cn">
-    <img src="assets/contact-email.svg" alt="Email silvite@modiconnect.cn" width="380">
+    <picture>
+      <source media="(prefers-color-scheme: dark)" srcset="assets/contact-email-dark.svg">
+      <img src="assets/contact-email-light.svg" alt="Email silvite@modiconnect.cn" width="380">
+    </picture>
   </a>
 </p>
