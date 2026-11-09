@@ -33,16 +33,14 @@ const write = (name, svg) => {
 };
 
 // ---------- 横幅 1200×320 ----------
-// 左：朱印 + 衬线标题 + 细线 + 中英副题。右：一轮中秋圆月，淡晕与极浅的月面斑纹，静态。
+// 左：朱印 + 衬线标题 + 细线 + 中英副题。右：一轮中秋圆月（NASA 公有领域照片，见 assets/CREDITS.md）。
+const MOON_HREF = 'data:image/jpeg;base64,' + readFileSync(join(ASSETS, 'moon-440.jpg')).toString('base64');
 function banner(t) {
   return `<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="320" viewBox="0 0 1200 320" role="img" aria-label="SILVITE — Independent Developer">
+<defs><clipPath id="moon"><circle cx="900" cy="160" r="108"/></clipPath></defs>
 <rect width="1200" height="320" fill="${t.bg}"/>
-<circle cx="900" cy="160" r="150" fill="${t.text}" fill-opacity=".035"/>
 <circle cx="900" cy="160" r="132" fill="none" stroke="${t.line}" stroke-width="1"/>
-<circle cx="900" cy="160" r="108" fill="${t.text}" fill-opacity=".92"/>
-<circle cx="872" cy="142" r="22" fill="${t.bg}" fill-opacity=".07"/>
-<circle cx="926" cy="182" r="30" fill="${t.bg}" fill-opacity=".06"/>
-<circle cx="912" cy="122" r="12" fill="${t.bg}" fill-opacity=".05"/>
+<image x="781" y="41" width="238" height="238" clip-path="url(#moon)" preserveAspectRatio="xMidYMid slice" href="${MOON_HREF}"/>
 <rect x="76" y="84" width="34" height="34" fill="${t.seal}"/>
 <text x="93" y="109" text-anchor="middle" font-family="${SERIF}" font-size="20" font-weight="700" fill="${t.sealText}">S</text>
 <text x="76" y="196" font-family="${SERIF}" font-size="66" font-weight="600" letter-spacing="14" fill="${t.text}">SILVITE</text>
