@@ -4,11 +4,18 @@
     {
       "id": "modi-connect",
       "title": "MoDi Connect",
-      "subtitle": "跨生态设备互联产品",
+      "subtitle": "跨生态的近场设备互联底座",
       "kind": "Windows · Android",
       "url": "https://github.com/LaoYinBai/MoDi-Connect",
-      "desc": ["让手机与电脑之间的声音实时互通。", "局域网、Wi-Fi Direct、蓝牙与 USB 四条链路。"],
-      "tags": ["C#", "Kotlin", "Real-time audio"]
+      "desc": [
+        "手机与电脑的声音、麦克风跨生态互通，本地优先。",
+        "当前支持 Android 与 Windows，提供四条互联链路。"
+      ],
+      "tags": [
+        "C#",
+        "Kotlin",
+        "Real-time audio"
+      ]
     },
     {
       "id": "translate-lab",
@@ -16,8 +23,15 @@
       "subtitle": "AI 翻译与语料处理工具",
       "kind": "Web · AI",
       "url": "https://github.com/LaoYinBai/Silvite-Translate-Lab",
-      "desc": ["面向译者的 AI 翻译工作台：上下文消歧、术语硬约束。", "支持文本与图片翻译，覆盖多种文体与漫画场景。"],
-      "tags": ["TypeScript", "AI", "Terminology"]
+      "desc": [
+        "面向译者的 AI 翻译工作台：上下文消歧、术语硬约束。",
+        "支持文本与图片翻译，覆盖多种文体与漫画场景。"
+      ],
+      "tags": [
+        "TypeScript",
+        "AI",
+        "Terminology"
+      ]
     },
     {
       "id": "sdltm-writer",
@@ -25,8 +39,15 @@
       "subtitle": "SDLTM 翻译记忆转换工具",
       "kind": "Windows 桌面工具",
       "url": "https://github.com/LaoYinBai/Sdltm-Writer",
-      "desc": ["把 TMX 翻译记忆转换为 Trados Studio 可打开的 .sdltm。", "无需安装 Trados，拖入文件即可导出。"],
-      "tags": ["C# / .NET 8", "SQLite", "TMX"]
+      "desc": [
+        "把 TMX 翻译记忆转换为 Trados Studio 可打开的 .sdltm。",
+        "无需安装 Trados，拖入文件即可导出。"
+      ],
+      "tags": [
+        "C# / .NET 8",
+        "SQLite",
+        "TMX"
+      ]
     },
     {
       "id": "engineering-method",
@@ -35,8 +56,15 @@
       "kind": "Reusable Agent Skill",
       "highlight": true,
       "url": "https://github.com/LaoYinBai/Silvite-Engineering-Method",
-      "desc": ["可直接安装的 Agent Skill：界定目标、修改边界与失败模式。", "强调独立验证、复杂度控制与可逆回滚，开箱即用。"],
-      "tags": ["Agent Skill", "Verification", "Reversible change"]
+      "desc": [
+        "可直接安装的 Agent Skill：界定目标、修改边界与失败模式。",
+        "强调独立验证、复杂度控制与可逆回滚，开箱即用。"
+      ],
+      "tags": [
+        "Agent Skill",
+        "Verification",
+        "Reversible change"
+      ]
     }
   ]
 }

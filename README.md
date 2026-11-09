@@ -6,8 +6,10 @@
 </p>
 
 <p align="center">
-  个人独立开发者，做能被真实使用的小工具。<br>
-  Independent developer building tools people actually use.
+  我做跨生态的近场设备互联底座：让不同生态的设备在身边自然协同。<br>
+  以 <a href="https://github.com/LaoYinBai/MoDi-Connect">MoDi Connect（墨堤互联）</a> 为主线，<br>
+  长期目标是一个可扩展的统一通信底座。<br><br>
+  <sub>Building a cross-ecosystem, near-field device interconnection foundation. MoDi Connect is the core.</sub>
 </p>
 
 <table>
