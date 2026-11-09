@@ -8,8 +8,8 @@
       "kind": "Windows · Android",
       "url": "https://github.com/LaoYinBai/MoDi-Connect",
       "desc": [
-        "手机与电脑的声音、麦克风跨生态互通，本地优先。",
-        "当前支持 Android 与 Windows，提供四条互联链路。"
+        "把局域网、Wi-Fi Direct、蓝牙与 USB 四条链路纳入同一套互联体系。",
+        "本地优先的互联底座：音频是首个落地能力，统一通信底座是长期方向。"
       ],
       "tags": [
         "C#",

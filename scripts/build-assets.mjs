@@ -33,19 +33,16 @@ const write = (name, svg) => {
 };
 
 // ---------- 横幅 1200×320 ----------
-// 左：朱印 + 衬线标题 + 细线 + 中英副题。右：一笔未闭合的圆，极慢地转动。
+// 左：朱印 + 衬线标题 + 细线 + 中英副题。右：一轮中秋圆月，淡晕与极浅的月面斑纹，静态。
 function banner(t) {
   return `<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="320" viewBox="0 0 1200 320" role="img" aria-label="SILVITE — Independent Developer">
-<style>
-  .enso{transform-origin:900px 160px;animation:turn 90s linear infinite}
-  @keyframes turn{to{transform:rotate(360deg)}}
-  @media (prefers-reduced-motion: reduce){*{animation:none!important}}
-</style>
 <rect width="1200" height="320" fill="${t.bg}"/>
-<g class="enso">
-  <path d="M900 40 A120 120 0 1 1 806 84" fill="none" stroke="${t.text}" stroke-opacity=".72" stroke-width="2.2" stroke-linecap="round"/>
-  <rect x="996" y="38" width="14" height="14" fill="${t.seal}"/>
-</g>
+<circle cx="900" cy="160" r="150" fill="${t.text}" fill-opacity=".035"/>
+<circle cx="900" cy="160" r="132" fill="none" stroke="${t.line}" stroke-width="1"/>
+<circle cx="900" cy="160" r="108" fill="${t.text}" fill-opacity=".92"/>
+<circle cx="872" cy="142" r="22" fill="${t.bg}" fill-opacity=".07"/>
+<circle cx="926" cy="182" r="30" fill="${t.bg}" fill-opacity=".06"/>
+<circle cx="912" cy="122" r="12" fill="${t.bg}" fill-opacity=".05"/>
 <rect x="76" y="84" width="34" height="34" fill="${t.seal}"/>
 <text x="93" y="109" text-anchor="middle" font-family="${SERIF}" font-size="20" font-weight="700" fill="${t.sealText}">S</text>
 <text x="76" y="196" font-family="${SERIF}" font-size="66" font-weight="600" letter-spacing="14" fill="${t.text}">SILVITE</text>
