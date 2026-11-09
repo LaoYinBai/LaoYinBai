@@ -59,11 +59,14 @@
 </p>
 
 <p align="center">
-  有想聊的点子或合作，欢迎来信。<br>
   <a href="mailto:silvite@modiconnect.cn">
     <picture>
-      <source media="(prefers-color-scheme: dark)" srcset="assets/contact-email-dark.svg">
-      <img src="assets/contact-email-light.svg" alt="Email silvite@modiconnect.cn" width="380">
+      <source media="(prefers-color-scheme: dark)" srcset="assets/footer-dark.svg">
+      <img src="assets/footer-light.svg" alt="有想聊的点子或合作，欢迎来信。 silvite@modiconnect.cn" width="100%">
     </picture>
   </a>
+</p>
+
+<p align="center">
+  <sub>GitHub · <a href="https://github.com/LaoYinBai">github.com/LaoYinBai</a></sub>
 </p>

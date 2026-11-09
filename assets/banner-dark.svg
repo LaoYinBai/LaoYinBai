@@ -7,6 +7,6 @@
 <text x="93" y="109" text-anchor="middle" font-family="'Noto Serif SC','Source Han Serif SC','Songti SC','STSong','SimSun',Georgia,serif" font-size="20" font-weight="700" fill="#15140F">S</text>
 <text x="76" y="196" font-family="'Noto Serif SC','Source Han Serif SC','Songti SC','STSong','SimSun',Georgia,serif" font-size="66" font-weight="600" letter-spacing="14" fill="#E9E3D3">SILVITE</text>
 <rect x="76" y="222" width="300" height="1" fill="#3A372D"/>
-<text x="76" y="250" font-family="'Noto Sans SC','PingFang SC','Microsoft YaHei','Segoe UI',Arial,sans-serif" font-size="13" letter-spacing="5" fill="#9E9785">INDEPENDENT DEVELOPER</text>
-<text x="76" y="282" font-family="'Noto Serif SC','Source Han Serif SC','Songti SC','STSong','SimSun',Georgia,serif" font-size="20" fill="#E9E3D3">个人独立开发者</text>
+<text x="76" y="256" font-family="'Noto Sans SC','PingFang SC','Microsoft YaHei','Segoe UI',Arial,sans-serif" font-size="18" letter-spacing="5" fill="#9E9785">INDEPENDENT DEVELOPER</text>
+<text x="76" y="294" font-family="'Noto Serif SC','Source Han Serif SC','Songti SC','STSong','SimSun',Georgia,serif" font-size="26" fill="#E9E3D3">个人独立开发者</text>
 </svg>

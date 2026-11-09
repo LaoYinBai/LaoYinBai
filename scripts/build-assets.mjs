@@ -45,37 +45,40 @@ function banner(t) {
 <text x="93" y="109" text-anchor="middle" font-family="${SERIF}" font-size="20" font-weight="700" fill="${t.sealText}">S</text>
 <text x="76" y="196" font-family="${SERIF}" font-size="66" font-weight="600" letter-spacing="14" fill="${t.text}">SILVITE</text>
 <rect x="76" y="222" width="300" height="1" fill="${t.line}"/>
-<text x="76" y="250" font-family="${SANS}" font-size="13" letter-spacing="5" fill="${t.muted}">INDEPENDENT DEVELOPER</text>
-<text x="76" y="282" font-family="${SERIF}" font-size="20" fill="${t.text}">个人独立开发者</text>
+<text x="76" y="256" font-family="${SANS}" font-size="18" letter-spacing="5" fill="${t.muted}">INDEPENDENT DEVELOPER</text>
+<text x="76" y="294" font-family="${SERIF}" font-size="26" fill="${t.text}">个人独立开发者</text>
 </svg>`;
 }
 
-// ---------- 精选作品卡片 600×200 ----------
-// 宣纸底、细边框、编号与朱印；标签以“·”分隔的墨色小字呈现，不用彩色色块。
+// ---------- 精选作品卡片 600×260 ----------
+// 宣纸底、细边框、编号与朱印。字号按 README 实际缩放（约 0.72 倍）后仍需清晰可读来设定。
 function card(p, t) {
   const border = p.highlight ? t.seal : t.line;
-  return `<svg xmlns="http://www.w3.org/2000/svg" width="600" height="200" viewBox="0 0 600 200" role="img" aria-label="${esc(p.title)}">
-<rect x="0.5" y="0.5" width="599" height="199" rx="4" fill="${t.panel}" stroke="${border}"/>
+  return `<svg xmlns="http://www.w3.org/2000/svg" width="600" height="260" viewBox="0 0 600 260" role="img" aria-label="${esc(p.title)}">
+<rect x="0.5" y="0.5" width="599" height="259" rx="4" fill="${t.panel}" stroke="${border}"/>
 ${p.highlight
-  ? `<rect x="28" y="26" width="12" height="12" fill="${t.seal}"/>`
-  : `<rect x="28.5" y="26.5" width="11" height="11" fill="none" stroke="${t.muted}"/>`}
-<text x="572" y="38" text-anchor="end" font-family="${SANS}" font-size="11" letter-spacing="2" fill="${t.dim}">${esc(p.kind)}</text>
-<text x="28" y="82" font-family="${SERIF}" font-size="24" font-weight="600" fill="${t.text}">${esc(p.title)}</text>
-<text x="28" y="106" font-family="${SANS}" font-size="13.5" fill="${t.muted}">${esc(p.subtitle)}</text>
-<rect x="28" y="124" width="544" height="1" fill="${t.line}"/>
-<text x="28" y="150" font-family="${SANS}" font-size="13" fill="${t.text}" fill-opacity=".85">${esc(p.desc[0])}</text>
-<text x="28" y="170" font-family="${SANS}" font-size="13" fill="${t.text}" fill-opacity=".85">${esc(p.desc[1])}</text>
-<text x="28" y="188" font-family="${SANS}" font-size="11" letter-spacing="1" fill="${t.dim}">${esc(p.tags.join(' · '))}</text>
+  ? `<rect x="28" y="28" width="14" height="14" fill="${t.seal}"/>`
+  : `<rect x="28.5" y="28.5" width="13" height="13" fill="none" stroke="${t.muted}"/>`}
+<text x="572" y="44" text-anchor="end" font-family="${SANS}" font-size="14" letter-spacing="1.5" fill="${t.dim}">${esc(p.kind)}</text>
+<text x="28" y="92" font-family="${SERIF}" font-size="32" font-weight="600" fill="${t.text}">${esc(p.title)}</text>
+<text x="28" y="124" font-family="${SANS}" font-size="18" fill="${t.muted}">${esc(p.subtitle)}</text>
+<rect x="28" y="146" width="544" height="1" fill="${t.line}"/>
+<text x="28" y="180" font-family="${SANS}" font-size="17" fill="${t.text}" fill-opacity=".9">${esc(p.desc[0])}</text>
+<text x="28" y="210" font-family="${SANS}" font-size="17" fill="${t.text}" fill-opacity=".9">${esc(p.desc[1])}</text>
+<text x="28" y="240" font-family="${SANS}" font-size="14" letter-spacing="0.5" fill="${t.dim}">${esc(p.tags.join(' · '))}</text>
 </svg>`;
 }
 
-// ---------- 邮箱按钮 380×60 ----------
-function emailButton(t, email) {
-  return `<svg xmlns="http://www.w3.org/2000/svg" width="380" height="60" viewBox="0 0 380 60" role="img" aria-label="Email: ${esc(email)}">
-<rect x="0.5" y="0.5" width="379" height="59" rx="2" fill="${t.panel}" stroke="${t.line}"/>
-<rect x="24" y="22" width="10" height="10" fill="${t.seal}"/>
-<text x="48" y="25" font-family="${SANS}" font-size="10.5" letter-spacing="3" fill="${t.dim}">EMAIL</text>
-<text x="48" y="45" font-family="${SERIF}" font-size="17" fill="${t.text}">${esc(email)}</text>
+// ---------- 联系页脚 1200×120 ----------
+// 与横幅同宽的横向页脚：左侧一句招呼，右侧邮箱；上缘一条细线与正文分隔。整张图可点击跳转 mailto。
+function footer(t, email) {
+  return `<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="120" viewBox="0 0 1200 120" role="img" aria-label="Say hello: ${esc(email)}">
+<rect width="1200" height="120" fill="${t.bg}"/>
+<rect x="76" y="0" width="1048" height="1" fill="${t.line}"/>
+<rect x="76" y="50" width="10" height="10" fill="${t.seal}"/>
+<text x="98" y="61" font-family="${SERIF}" font-size="26" fill="${t.text}">有想聊的点子或合作，欢迎来信。</text>
+<text x="1124" y="50" text-anchor="end" font-family="${SANS}" font-size="14" letter-spacing="3" fill="${t.dim}">EMAIL</text>
+<text x="1124" y="82" text-anchor="end" font-family="${SERIF}" font-size="30" fill="${t.text}">${esc(email)}</text>
 </svg>`;
 }
 
@@ -84,7 +87,7 @@ function main() {
   for (const [mode, t] of Object.entries(THEMES)) {
     write(`banner-${mode}.svg`, banner(t));
     for (const p of projects) write(`card-${p.id}-${mode}.svg`, card(p, t));
-    write(`contact-email-${mode}.svg`, emailButton(t, 'silvite@modiconnect.cn'));
+    write(`footer-${mode}.svg`, footer(t, 'silvite@modiconnect.cn'));
   }
 }
 

@@ -9,7 +9,7 @@
       "url": "https://github.com/LaoYinBai/MoDi-Connect",
       "desc": [
         "把局域网、Wi-Fi Direct、蓝牙与 USB 四条链路纳入同一套互联体系。",
-        "本地优先的互联底座：音频是首个落地能力，统一通信底座是长期方向。"
+        "本地优先的互联底座：音频是首个能力，统一通信底座是长期方向。"
       ],
       "tags": [
         "C#",
@@ -40,7 +40,7 @@
       "kind": "Windows 桌面工具",
       "url": "https://github.com/LaoYinBai/Sdltm-Writer",
       "desc": [
-        "把 TMX 翻译记忆转换为 Trados Studio 可打开的 .sdltm。",
+        "把 TMX 翻译记忆转为 Trados 可用的 .sdltm 文件。",
         "无需安装 Trados，拖入文件即可导出。"
       ],
       "tags": [
@@ -57,7 +57,7 @@
       "highlight": true,
       "url": "https://github.com/LaoYinBai/Silvite-Engineering-Method",
       "desc": [
-        "可直接安装的 Agent Skill：界定目标、修改边界与失败模式。",
+        "可直接安装的 Agent Skill：界定目标、边界与失败模式。",
         "强调独立验证、复杂度控制与可逆回滚，开箱即用。"
       ],
       "tags": [
